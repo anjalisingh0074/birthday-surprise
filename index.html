@@ -5,224 +5,182 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Himanshu</title>
 
-<!-- Google Fonts -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #0b0b1e, #000);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  overflow: hidden;
-  font-family: 'Pacifico', cursive;
+body{
+    margin:0;
+    height:100vh;
+    background:radial-gradient(circle at top,#0b0b1e,#000);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    overflow:hidden;
+    font-family:'Pacifico', cursive;
 }
 
-/* SCREENS */
-.screen {
-  display: none;
-  text-align: center;
-}
-.screen.active {
-  display: block;
+.container{
+    text-align:center;
 }
 
-/* HEART */
-#heart {
-  font-size: 90px;
-  cursor: pointer;
-  animation: pulseGlow 1.5s infinite;
+.heart{
+    width:140px;
+    height:140px;
+    background:red;
+    position:relative;
+    transform:rotate(-45deg);
+    margin:auto;
+    cursor:pointer;
+    box-shadow:0 0 30px crimson;
+    animation:pulse 1.5s infinite;
 }
 
-@keyframes pulseGlow {
-  0% {
-    text-shadow: 0 0 10px red, 0 0 25px crimson;
-    transform: scale(1);
-  }
-  50% {
-    text-shadow: 0 0 30px red, 0 0 60px crimson;
-    transform: scale(1.25);
-  }
-  100% {
-    text-shadow: 0 0 10px red, 0 0 25px crimson;
-    transform: scale(1);
-  }
+.heart:before,
+.heart:after{
+    content:"";
+    width:140px;
+    height:140px;
+    background:red;
+    border-radius:50%;
+    position:absolute;
 }
 
-/* TEXT */
-.big {
-  font-size: 36px;
-  margin-top: 20px;
+.heart:before{
+    top:-70px;
+    left:0;
 }
-.medium {
-  font-size: 26px;
-  margin-top: 10px;
-}
-.small {
-  font-size: 20px;
-  margin-top: 15px;
+.heart:after{
+    left:70px;
+    top:0;
 }
 
-/* CAKE */
-.cake {
-  margin-top: 30px;
-}
-.layer {
-  width: 220px;
-  height: 55px;
-  background: linear-gradient(#4da6ff, #1e90ff);
-  margin: 6px auto;
-  border-radius: 10px;
-}
-.layer.middle { width: 180px; }
-.layer.top { width: 140px; }
-
-.cake-text {
-  font-size: 22px;
-  margin-top: 8px;
+@keyframes pulse{
+    0%{transform:rotate(-45deg) scale(1);}
+    50%{transform:rotate(-45deg) scale(1.08);}
+    100%{transform:rotate(-45deg) scale(1);}
 }
 
-/* CANDLE */
-.candle {
-  width: 10px;
-  height: 40px;
-  background: white;
-  margin: auto;
-  position: relative;
-}
-.flame {
-  width: 14px;
-  height: 14px;
-  background: orange;
-  border-radius: 50%;
-  position: absolute;
-  top: -16px;
-  left: -2px;
-  animation: flicker 0.4s infinite alternate;
-}
-@keyframes flicker {
-  from { transform: scale(1); }
-  to { transform: scale(1.3); }
-}
-.smoke {
-  font-size: 24px;
-  opacity: 0;
-  animation: smoke 2s forwards;
-}
-@keyframes smoke {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-40px); }
+.hidden{display:none;}
+
+h1{
+    font-size:48px;
+    margin-top:25px;
 }
 
-/* CONFETTI */
-.confetti {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: fall 3s linear forwards;
-}
-@keyframes fall {
-  to { transform: translateY(110vh); opacity: 0; }
+.cake{
+    width:180px;
+    height:110px;
+    background:#3b82f6;
+    margin:30px auto;
+    border-radius:10px;
+    position:relative;
 }
 
-/* END */
-.handwritten {
-  font-family: 'Great Vibes', cursive;
-  font-size: 34px;
-  margin-top: 20px;
+.layer{
+    height:35px;
+    background:#60a5fa;
+    margin:8px;
+    border-radius:6px;
+}
+
+.candle{
+    width:10px;
+    height:40px;
+    background:white;
+    position:absolute;
+    top:-40px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.flame{
+    width:14px;
+    height:14px;
+    background:orange;
+    border-radius:50%;
+    position:absolute;
+    top:-15px;
+    left:-2px;
+    animation:flicker 0.4s infinite;
+}
+
+@keyframes flicker{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.text{
+    font-size:36px;
+    margin-top:20px;
+}
+
+.handwritten{
+    font-family:'Great Vibes', cursive;
+    font-size:42px;
+    margin-top:30px;
 }
 </style>
 </head>
 
 <body>
+<div class="container">
 
-<!-- SCREEN 1 -->
-<div class="screen active" id="s1">
-  <div class="small">Tried something new for you…</div>
-  <div id="heart" onclick="openHeart()">❤️</div>
-</div>
+    <div id="heart" class="heart"></div>
 
-<!-- SCREEN 2 -->
-<div class="screen" id="s2">
-  <div class="big">Happy Birthday</div>
-  <div class="medium">Himanshu 💗</div>
-  <div class="medium" id="fav" style="display:none;">My all time favourite person</div>
-</div>
+    <div id="content" class="hidden">
+        <h1>Happy Birthday</h1>
 
-<!-- SCREEN 3 -->
-<div class="screen" id="s3">
-  <div class="cake">
-    <div class="candle">
-      <div class="flame" id="flame"></div>
+        <div class="cake">
+            <div class="candle">
+                <div id="flame" class="flame"></div>
+            </div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+
+        <div id="wish" class="text hidden">Make a wish & blow 🎂</div>
+        <div id="love" class="text hidden">I love you ❤️</div>
+        <div id="miss" class="text hidden">I miss you 💖</div>
+
+        <div id="end" class="handwritten hidden">Always here — Anjali</div>
     </div>
-    <div class="layer top"></div>
-    <div class="layer middle"></div>
-    <div class="layer"></div>
-    <div class="cake-text">Bestie 🎂</div>
-  </div>
-  <div class="medium" style="font-weight:bold; margin-top:20px;">Blow the candle 🎈</div>
-  <button onclick="blow()" style="margin-top:10px;font-size:18px;">Blow</button>
+
 </div>
 
-<!-- SCREEN 4 -->
-<div class="screen" id="s4">
-  <div class="big">I love you 💖</div>
-  <div class="big" style="margin-top:15px;">I miss us 🤍</div>
-  <div class="handwritten">Always here — Anjali</div>
-</div>
-
-<audio id="music" src="music.mp3"></audio>
+<audio id="music" src="voice.mp3"></audio>
 
 <script>
-function openHeart() {
-  document.getElementById("s1").classList.remove("active");
-  document.getElementById("s2").classList.add("active");
+const heart = document.getElementById("heart");
+const content = document.getElementById("content");
+const flame = document.getElementById("flame");
+const music = document.getElementById("music");
 
-  setTimeout(() => {
-    document.getElementById("fav").style.display = "block";
-  }, 1200);
+heart.onclick = () => {
+    heart.style.display="none";
+    content.classList.remove("hidden");
 
-  setTimeout(() => {
-    document.getElementById("s2").classList.remove("active");
-    document.getElementById("s3").classList.add("active");
-  }, 3000);
-}
+    setTimeout(()=>document.getElementById("wish").classList.remove("hidden"),1000);
 
-function blow() {
-  document.getElementById("flame").style.display = "none";
-  const smoke = document.createElement("div");
-  smoke.className = "smoke";
-  smoke.innerText = "💨";
-  document.querySelector(".candle").appendChild(smoke);
+    setTimeout(()=>{
+        flame.style.display="none";
+        music.play();
 
-  playMusic();
-  confettiBurst();
+        document.getElementById("love").classList.remove("hidden");
 
-  setTimeout(() => {
-    document.getElementById("s3").classList.remove("active");
-    document.getElementById("s4").classList.add("active");
-  }, 2500);
-}
+        setTimeout(()=>{
+            document.getElementById("miss").classList.remove("hidden");
+        },1500);
 
-function playMusic() {
-  const music = document.getElementById("music");
-  music.currentTime = 0;
-  music.play();
-}
+        setTimeout(()=>{
+            document.getElementById("end").classList.remove("hidden");
+        },3000);
 
-function confettiBurst() {
-  for (let i = 0; i < 40; i++) {
-    const c = document.createElement("div");
-    c.className = "confetti";
-    c.innerText = "✨";
-    c.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 3000);
-  }
-}
+    },3000);
+};
 </script>
 
 </body>
