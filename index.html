@@ -192,23 +192,4 @@ function blow(){
   song.play();
 
   for(let i=0;i<3;i++){
-    let s=document.createElement("div");
-    s.className="smoke";
-    candle.appendChild(s);
-  }
-
-  for(let i=0;i<60;i++){
-    let c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*100+"vw";
-    c.style.animationDuration=(3+Math.random()*2)+"s";
-    document.body.appendChild(c);
-  }
-
-  setTimeout(()=>love.style.opacity=1,1200);
-  setTimeout(()=>miss.style.opacity=1,2600);
-}
-</script>
-
-</body>
-</html>
+    let s=document.createElement("div")
